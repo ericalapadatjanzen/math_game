@@ -1,0 +1,8 @@
+require_relative "./Game.rb
+
+
+
+puts "WELCOME"
+g = Game.new
+g.play
+puts "GOODBYEEEEEEEE"

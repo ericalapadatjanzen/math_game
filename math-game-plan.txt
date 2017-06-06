@@ -62,6 +62,7 @@ Turn
     -ask_question()
         -calculate_answer(num1, num2)
         -get_user_answer(user.answer) - +blurb if right -blurb if wrong
+
         -correct.answer ? (user.answer) - @answer.to_s == user.answer
         -display_user_respose()
         -check_score()
