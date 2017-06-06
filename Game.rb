@@ -4,34 +4,51 @@ require_relative "./Player.rb"
 
 class Game
 
-  def initialize()
-    # @game_over = false
-    # @player1 = Player.new('player 1')
-    # @player2 = Player.new('player 2')
-
+  def initialize
     @players = [Player.new('Primus'), Player.new('Secundus')]
     @current_player_index = 0
   end
 
+
+
   def play
-    while (and_then_there_was_one?) do
+    while (two_players?) do
       turn = Turn.new(@players[@current_player_index])
-      turn.play
-      if !(and_then_there_was_one?)
-        next_player
-      end
+      turn.ask_question
+      turn.get_user_answer
+      turn.evaluate_answer
+      check_score
+      puts "------------------ NEW TURN ----------------------"
+      next_player
+    end
+    end_game
+  end
+
+  def check_score
+    puts "#{@players[0].name} : #{@players[0].life}/3 #{@players[1].name} : #{@players[1].life}/3"
+
+  end
+
+  def end_game
+    if @players[0].game_over?
+      puts "#{@players[1].name} is the WINNER!!"
+    else
+      puts "#{@players[0].name} is the WINNER!!"
     end
   end
 
   private
 
   def next_player
-    # update @current_player_index
+    if @current_player_index == 0
+      @current_player_index = 1
+    else
+      @current_player_index = 0
+    end
   end
 
-  def and_then_there_was_one?
-    true
-    # TODO
+  def two_players?
+    !(@players[0].game_over? || @players[1].game_over?)
   end
 
 end

@@ -12,7 +12,7 @@ class Player
   end
 
   def wrong_answer
-    @life -= 1
+     @life -= 1
   end
 
   def game_over?
