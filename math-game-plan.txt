@@ -1,0 +1,77 @@
+Game flow
+- puts a blurb to introduce game
+_____game loop______
+- ask a question
+- get.chomp answer
+- evalate answer  (boolean)
+- if answer is wrong - decrament current player score
+-display blurb to current player and scoreboard
+-if current player have 0 score, end game(put goodbye) (breaks loop)
+- display scoreboard
+-switch players(turn)
+loooooooooooooop back
+
+
+
+
+Game
+Player
+  -lives/score
+Question/Turn
+  -math random
+  -(1...20).to_a
+
+(could add another class Game.io --> for output input makes it more robust)
+
+Players
+@player 1 + @player 2 (instanaces ie new player)
+-if it's their turn
+-what is their answer
+-what is their current score
+- player inputs a string (.to_i) (number.to_s)
+
+Question/Turn
+- random new question
+-answers
+
+Main.rb (could do)
+- initailize game
+- game over message
+
+
+Game
+  @player1
+  @player2
+  @game_over - starts false
+  -initialize ()
+    -player.new for player 1 and player 2
+    - start blurb
+  -play method (to start game (while)loop) until @game_over = true
+  -turn = turn.new
+  -
+  -display.score()
+  -end.game
+
+Turn
+  @@current_player   --- Turn.current_player
+    @answer
+    -initailize()
+    @answer = nil
+    @current_player = 1 toggle
+    -switch_players()
+    -ask_question()
+        -calculate_answer(num1, num2)
+        -get_user_answer(user.answer) - +blurb if right -blurb if wrong
+        -correct.answer ? (user.answer) - @answer.to_s == user.answer
+        -display_user_respose()
+        -check_score()
+
+Player
+ @lives - 3
+ @name
+  -initailize(name)
+    -decrement.lives
+
+
+
+  @player1=Player.new('player 1')
